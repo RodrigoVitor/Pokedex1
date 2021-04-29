@@ -2,8 +2,8 @@
   <div>
     <div class="card">
       <div class="card-image">
-        <figure>
-          <img :src="pokemon.front" alt="Placeholder image" />
+        <figure id="poke">
+          <img :src="currentImg" alt="Placeholder image" />
         </figure>
       </div>
       <div class="card-content">
@@ -14,7 +14,9 @@
           </div>
         </div>
 
-        <div class="content"></div>
+        <div class="content">
+            <button class="button" @click="mudarSprite">Mudar Sprite</button>
+        </div>
       </div>
     </div>
   </div>
@@ -23,33 +25,59 @@
 <script>
 import axios from "axios";
 export default {
+  //Method
+  methods: {
+      mudarSprite: function() {
+          if(this.isFront)
+          {
+              this.isFront = false
+              this.currentImg = this.pokemon.back
+          } else 
+          {
+              this.isFront = true
+              this.currentImg = this.pokemon.front
+          }
+      }
+  },
+  //Props
   props: {
     num: Number,
     name: String,
     url: String,
   },
+  //Filter
   filters: {
     upper: function(value) {
       let newName = value[0].toUpperCase() + value.slice(1);
       return newName;
     },
   },
+  //Created
   created: function() {
     axios.get(this.url).then((res) => {
       this.pokemon.type = res.data.types[0].type.name;
       this.pokemon.front = res.data.sprites.front_default;
       this.pokemon.back = res.data.sprites.back_default;
-      console.log(this.pokemon);
+      this.currentImg = this.pokemon.front
     });
   },
+  //data
   data() {
     return {
+        isFront: true,
+        currentImg: "",
       pokemon: {
         type: "",
         front: "",
         back: "",
-      },
-    };
-  },
+      }
+    }
+  }
 };
 </script>
+
+<style scoped>
+#poke {
+    margin-top:2%
+}
+</style>
