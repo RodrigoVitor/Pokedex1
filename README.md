@@ -9,4 +9,4 @@ Este projeto foi desenvolvido durante uma video aula, no qual adquiri muitos con
 * Axios
 
 # Onde vizualizar a interface do projeto?
-* O projeto está disponivel no meu canal no youtube, você pode acessa-lo cliacndo [aqui](https://youtu.be/Nrp4mqn6vH8).
+* O projeto está disponivel no meu canal no youtube, você pode acessa-lo clicando [aqui](https://youtu.be/Nrp4mqn6vH8).
