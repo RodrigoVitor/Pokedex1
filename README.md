@@ -1,6 +1,5 @@
 # Pokedex
  - para acessar, entre na pasta pokedex
- - 
 ## O que é este projeto?
 Este projeto foi desenvolvido durante uma video aula, no qual adquiri muitos conhecimentos. A aplicação faz uma requisição a API do [PokeApi](https://pokeapi.co/) que retorna os tipos de pokemon
 
